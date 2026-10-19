@@ -8,7 +8,7 @@
 
 **PBKV** is a KV-cache management system built on top of [SGLang](https://github.com/sgl-project/sglang) for LLM-based **multi-agent workflows**. It predicts future agent invocations to guide cache eviction and prefetching, supporting shared-context reuse across workflows with dynamic invocation orders.
 
-On **HoVer + LangChain** with **Qwen3-32B** (TP=2, concurrency 72), PBKV raises the GPU KV-cache hit rate from **27.09% to 69.10%** and achieves **1.85× end-to-end workflow speedup** over SGLang + HiCache with LRU.
+PBKV's benefits become apparent as higher concurrency increases GPU memory pressure and triggers KV-cache eviction. With **Qwen3-32B** served on **2 × NVIDIA A6000 GPUs (48 GB each, TP=2)**, PBKV raises the GPU KV-cache hit rate from **27.09% to 69.10%** and achieves **1.85× end-to-end workflow speedup** over SGLang + HiCache with LRU on **HoVer + LangChain** at concurrency 72.
 
 ## System Overview
 
